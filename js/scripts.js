@@ -1,27 +1,34 @@
-var add = function(number1, number2) {
-  var answer = (number1 + number2);
-  return answer;
-};
+var amount = parseInt(prompt("How many digits would you like to operate on?"));
+var userNumbers = [];
+for(var x = 0; x < amount; x++) {
+  userNumbers[x] = parseInt(prompt("Pick number " + (x + 1)));
+}
+var operation = prompt("What would you like to do to these numbers? Your choices are: add, subtract, divide, and multiply. Lower case only!");
 
-var subtract = function(number1, number2) {
-  var answer = (number1 - number2);
-  return answer;
-};
-
-var multiply = function(number1, number2) {
-  var answer = (number1 * number2);
-  return answer;
-};
-
-var divide = function(number1, number2) {
-  var answer = (number1 / number2);
-  return answer;
-};
-
-var number1 = parseInt(prompt("Pick a number:"));
-var number2 = parseInt(prompt("Pick another number:"));
-
-alert("The quotient is: " + divide(number1, number2));
-alert("The product is: " + multiply(number1, number2));
-alert("The sum is: " + add(number1, number2));
-alert("The difference is: " + subtract(number1, number2));
+if(operation === "add") {
+  var sum = userNumbers[0];
+    for(var x = 1; x < userNumbers.length; x++){
+      sum += userNumbers[x];
+    };
+  alert("The sum is: " + sum);
+}
+else if(operation === "subtract") {
+  var difference = userNumbers[0];
+    for(var x = 1; x < userNumbers.length; x++) {
+      difference -= userNumbers[x];
+    };
+  alert("The difference is: " + difference);
+}
+else if(operation === "divide") {
+  var quotient = userNumbers[0];
+  for (var x = 1; x < userNumbers.length; x++) {
+    quotient /= userNumbers[x];
+  };
+  alert("The quotient is " + quotient);
+} else if(operation === "multiply") {
+  var product = userNumbers[0];
+  for(var x = 1; x < userNumbers.length; x++) {
+    product *= userNumbers[x];
+  };
+  alert("The product is: " + product);
+} else {alert("Input is not a valid operation!")};
